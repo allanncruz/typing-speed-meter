@@ -15,3 +15,16 @@ field.on("input", function(){
     var counterCharacters = content.length;
     $("#counterCharacters").text(counterCharacters);
 });
+
+
+var typingTime = $("#typing-time").text();
+field.one("focus", function(){
+   var cronometroID =  setInterval(function(){
+       typingTime--;
+       $("#typing-time").text(typingTime);
+       if (typingTime < 1) {
+           field.attr("disabled", true);
+           clearInterval(cronometroID);
+       }
+   }, 1000)
+});
