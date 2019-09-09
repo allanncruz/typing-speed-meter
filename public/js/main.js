@@ -37,6 +37,7 @@ function initializeTimer(){
             if (typingTime < 1) {
                 field.attr("disabled", true);
                 clearInterval(cronometroID);
+                field.addClass("fieldDisabled");
             }
         }, 1000)
     });

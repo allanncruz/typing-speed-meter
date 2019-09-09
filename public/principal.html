@@ -2,28 +2,32 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
     <title>Typing Speed Meter</title>
 </head>
 <body>
-    <h1>Typing Speed Meter</h1>
-    <p class="phrase">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ligula nec libero tempus vulputate. Nam elementum quam lorem, id varius odio suscipit ultrices. </p>
+    <div class="container">
+        <h1 class="center">Typing Speed Meter</h1>
+        <p class="phrase center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ligula nec libero tempus vulputate. Nam elementum quam lorem, id varius odio suscipit ultrices. </p>
 
-    <ul class="info">
-        <li><span id="phraseSize">0</span> Words</li>
-        <li><span id="typing-time">10</span> seconds</li>
-    </ul>
+        <ul class="info center">
+            <li><span id="phraseSize">0</span> Words</li>
+            <li><span id="typing-time">10</span> seconds</li>
+        </ul>
 
-    <textarea class="typing-field" rows="8" cols="40"></textarea>
-    <button id="start-button">Reiniciar o jogo</button>
+        <textarea class="typing-field" rows="8" cols="40"></textarea>
+        <button id="start-button">Reiniciar o jogo</button>
 
-    <ul>
-        <li>
-            <span id="counterCharacters">0</span> Characters
-        </li>
-        <li>
-            <span id="counterWords">0</span> Words
-        </li>
-    </ul>
+        <ul>
+            <li>
+                <span id="counterCharacters">0</span> Characters
+            </li>
+            <li>
+                <span id="counterWords">0</span> Words
+            </li>
+        </ul>
+    </div>
 
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
