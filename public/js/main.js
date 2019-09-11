@@ -37,7 +37,7 @@ function initializeTimer(){
             if (typingTime < 1) {
                 field.attr("disabled", true);
                 clearInterval(cronometroID);
-                field.addClass("fieldDisabled");
+                field.toggleClass("fieldDisabled");
             }
         }, 1000)
     });
@@ -50,5 +50,6 @@ function restartGame(){
     $("#counterCharacters").text("0");
     $("#typing-time").text(StartTime);
     initializeTimer();
+    field.toggleClass("fieldDisabled");
 }
 

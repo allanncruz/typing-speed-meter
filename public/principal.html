@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
     <link rel="stylesheet" href="css/estilos.css">
     <title>Typing Speed Meter</title>
 </head>
@@ -12,12 +13,23 @@
         <p class="phrase center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac ligula nec libero tempus vulputate. Nam elementum quam lorem, id varius odio suscipit ultrices. </p>
 
         <ul class="info center">
-            <li><span id="phraseSize">0</span> Words</li>
-            <li><span id="typing-time">10</span> seconds</li>
+            <li>
+                <i class="small material-icons icons">description</i>
+                <span id="phraseSize">0</span> Words
+            </li>
+            <li>
+                <i class="small material-icons icons">access_time</i>
+                <span id="typing-time">10</span> seconds
+            </li>
         </ul>
 
         <textarea class="typing-field" rows="8" cols="40"></textarea>
-        <button id="start-button">Reiniciar o jogo</button>
+        
+        <div class="bottons">
+            <a class="btn-floating btn-large waves-effect waves-light red" id="start-button">
+                <i class="material-icons">restore</i>
+            </a>
+        </div>
 
         <ul>
             <li>
