@@ -5,6 +5,7 @@ $(function(){
     initializeCounters();
     updateSentenceSize();
     initializeTimer();
+    initializesBookmarks();
     $("#start-button").click(restartGame);
 });
 
@@ -27,6 +28,23 @@ function initializeCounters() {
         $("#counterCharacters").text(counterCharacters);
     });
 }
+
+function initializesBookmarks() {
+
+    var phrase = $(".phrase").text();
+    field.on("input", function() {
+        var typed = field.val();
+        var comparable = phrase.substr(0 , typed.length);
+        if(typed == comparable) {
+            field.addClass("borda-verde");
+            field.removeClass("borda-vermelha");
+        } else {
+            field.addClass("borda-vermelha");
+            field.removeClass("borda-verde");
+        }
+    });
+}
+
 
 function initializeTimer(){
     var typingTime = $("#typing-time").text();
@@ -51,5 +69,8 @@ function restartGame(){
     $("#typing-time").text(StartTime);
     initializeTimer();
     field.toggleClass("fieldDisabled");
+
+    field.removeClass("borda-vermelha");
+    field.removeClass("borda-verde");
 }
 
