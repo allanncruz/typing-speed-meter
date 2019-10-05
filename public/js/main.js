@@ -70,20 +70,35 @@ function insertScoreboard(){
     var bodyTable = $(".scoreboard").find("tbody");
     var user = "Allon"
     var numberWords = $("#counterWords").text();
-    var removeButtom = "<a href='#' class='removeButtom'><i class='small material-icons'>delete</i></a>"
-    var line =  "<tr>"+
-                    "<td>"+ user + "</td>"+
-                    "<td>"+ numberWords + "</td>"+
-                    "<td>"+ removeButtom + "</td>"+
-                "<tr>";
-
-                bodyTable.prepend(line);
+    var line =  newLine(user,numberWords);
+    line.find(".removebuttom").click(removeLine);
+    
+    bodyTable.prepend(line);
 }
 
-$(".removeButtom").click(function(event) {
+function newLine(user,words){
+    var line        = $("<tr>");
+    var columUser   = $("<td>").text(user);
+    var columWords  = $("<td>").text(words);
+    var columRemove = $("<td>");
+
+    var link = $("<a>").addClass("removebuttom")
+    var icon = $("<i>").addClass("small").addClass("material-icons").text("delete");
+
+    link.append(icon);
+    columRemove.append(link);
+
+    line.append(columUser);
+    line.append(columWords);
+    line.append(columRemove);
+
+    return line;
+}
+
+function removeLine(){
     event.preventDefault();
     $(this).parent().parent().remove();
-});
+}
 
 function restartGame(){
     field.attr("disabled", false);
