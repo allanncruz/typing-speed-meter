@@ -61,6 +61,11 @@ function initializeTimer(){
     });
 }
 
+function insertScoreboard(){
+    var table = $(".scoreboard").find();
+    console.log(table);
+}
+
 function restartGame(){
     field.attr("disabled", false);
     field.val("");
