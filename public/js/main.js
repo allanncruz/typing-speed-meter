@@ -70,14 +70,20 @@ function insertScoreboard(){
     var bodyTable = $(".scoreboard").find("tbody");
     var user = "Allon"
     var numberWords = $("#counterWords").text();
-
+    var removeButtom = "<a href='#' class='removeButtom'><i class='small material-icons'>delete</i></a>"
     var line =  "<tr>"+
                     "<td>"+ user + "</td>"+
                     "<td>"+ numberWords + "</td>"+
+                    "<td>"+ removeButtom + "</td>"+
                 "<tr>";
 
                 bodyTable.prepend(line);
 }
+
+$(".removeButtom").click(function(event) {
+    event.preventDefault();
+    $(this).parent().parent().remove();
+});
 
 function restartGame(){
     field.attr("disabled", false);
