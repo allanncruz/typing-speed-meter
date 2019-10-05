@@ -29,6 +29,27 @@ function initializeCounters() {
     });
 }
 
+function initializeTimer(){
+    var typingTime = $("#typing-time").text();
+    field.one("focus", function(){
+        var cronometroID =  setInterval(function(){
+            typingTime--;
+            $("#typing-time").text(typingTime);
+            if (typingTime < 1) {
+                clearInterval(cronometroID);
+                endGame();
+            }
+        }, 1000)
+    });
+}
+
+function endGame(){
+    field.attr("disabled", true);
+    field.toggleClass("fieldDisabled");
+    insertScoreboard();
+}
+
+
 function initializesBookmarks() {
 
     var phrase = $(".phrase").text();
@@ -45,25 +66,17 @@ function initializesBookmarks() {
     });
 }
 
-
-function initializeTimer(){
-    var typingTime = $("#typing-time").text();
-    field.one("focus", function(){
-        var cronometroID =  setInterval(function(){
-            typingTime--;
-            $("#typing-time").text(typingTime);
-            if (typingTime < 1) {
-                field.attr("disabled", true);
-                clearInterval(cronometroID);
-                field.toggleClass("fieldDisabled");
-            }
-        }, 1000)
-    });
-}
-
 function insertScoreboard(){
-    var table = $(".scoreboard").find();
-    console.log(table);
+    var bodyTable = $(".scoreboard").find("tbody");
+    var user = "Allon"
+    var numberWords = $("#counterWords").text();
+
+    var line =  "<tr>"+
+                    "<td>"+ user + "</td>"+
+                    "<td>"+ numberWords + "</td>"+
+                "<tr>";
+
+                bodyTable.prepend(line);
 }
 
 function restartGame(){
