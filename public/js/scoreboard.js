@@ -40,5 +40,5 @@ function removeLine(){
 $("#button-scoreboard").click(showScore);
 
 function showScore(){
-    $(".scoreboard").slideToggle(600);
+    $(".scoreboard").stop().slideToggle(600);
 }
