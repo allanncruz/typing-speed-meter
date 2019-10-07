@@ -29,7 +29,12 @@ function newLine(user,words){
 
 function removeLine(){
     event.preventDefault();
-    $(this).parent().parent().remove();
+    var line = $(this).parent().parent();
+    
+    line.fadeOut(1000);
+    setTimeout(function() {
+        line.remove();
+    }, 1000);
 }
 
 $("#button-scoreboard").click(showScore);
