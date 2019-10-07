@@ -31,3 +31,9 @@ function removeLine(){
     event.preventDefault();
     $(this).parent().parent().remove();
 }
+
+$("#button-scoreboard").click(showScore);
+
+function showScore(){
+    $(".scoreboard").slideToggle(600);
+}
