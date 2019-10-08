@@ -7,6 +7,8 @@ function randomPhrase() {
 function changePhrase(data){
     var phrase = $(".phrase");
     var numberRandom = Math.floor(Math.random() * data.length);
-    
+
     phrase.text(data[numberRandom].texto);
+    updateSentenceSize();
+    updateStartTime(data[numberRandom].tempo);
 }

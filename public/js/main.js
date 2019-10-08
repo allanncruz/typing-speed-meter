@@ -9,6 +9,12 @@ $(function(){
     $("#start-button").click(restartGame);
 });
 
+function updateStartTime(tempo){
+    initializeTimer = tempo;
+    $("#typing-time").text(tempo);
+}
+
+
 function updateSentenceSize(){
     var phrase = $(".phrase").text();
     var numberWords = phrase.split(" ").length;
@@ -17,9 +23,8 @@ function updateSentenceSize(){
 }
 
 function initializeCounters() {
-    field.on("input", function(){
+    field.on("input", function(){   
         var content = field.val();
-    
         var numberWords = content.split(/\S+/).length - 1;
         $("#counterWords").text(numberWords);
         console.log(content.length);
@@ -30,8 +35,8 @@ function initializeCounters() {
 }
 
 function initializeTimer(){
-    var typingTime = $("#typing-time").text();
     field.one("focus", function(){
+        var typingTime = $("#typing-time").text();
         var cronometroID =  setInterval(function(){
             typingTime--;
             $("#typing-time").text(typingTime);
@@ -51,9 +56,8 @@ function endGame(){
 
 
 function initializesBookmarks() {
-
-    var phrase = $(".phrase").text();
     field.on("input", function() {
+        var phrase = $(".phrase").text();
         var typed = field.val();
         var comparable = phrase.substr(0 , typed.length);
         if(typed == comparable) {
