@@ -6,6 +6,18 @@ function insertScoreboard(){
     line.find(".removebuttom").click(removeLine);
     
     bodyTable.prepend(line);
+
+    $(".scoreboard").slideDown(500);
+    scrollScore();
+}
+
+function scrollScore() {
+    var positionScore = $(".scoreboard").offset().top;
+
+    $("html, body").animate(
+    {
+        scrollTop: positionScore
+    }, 1000);
 }
 
 function newLine(user,words){
