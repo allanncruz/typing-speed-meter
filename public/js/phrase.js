@@ -1,7 +1,13 @@
 $("#buttom-phrase").click(randomPhrase);
 
 function randomPhrase() {
-    $.get("http://localhost:3000/frases",changePhrase);
+    $.get("http://localhost:3000/frases",changePhrase)
+    .fail(function(){
+        $("#erro").toggle();
+        setTimeout(function(){
+            $("#erro").toggle();
+        },1500);
+    });
 }
 
 function changePhrase(data){

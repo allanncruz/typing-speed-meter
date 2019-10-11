@@ -29,3 +29,8 @@ body {
 .scoreboard{
     display: none;
 }
+
+#erro{
+    color: red;
+    display: none;
+}
